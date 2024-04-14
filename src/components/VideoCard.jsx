@@ -1,14 +1,18 @@
 import React from 'react'
 
-const VideoCard = ({channelTitle,thumbnails}) => {
+const VideoCard = ({info}) => {
+console.log(info)
+// const {snippet}=info;
+// const {channelId ,channelTitle,thumbnails,title}=snippet;
   return (
-    <div className='border border-gray h-[300px] w-[350px] p-4'>
-        <img  className=" h-[200px]"src={thumbnails} alt="" />
-        <div className="catd-items">
-            <h1>{channelTitle}</h1>
-            <p></p>
+    <div className='border border-gray h-[280px] w-[320px] rounded'>
+        <img  className=" h-[180px] w-[320px] rounded"src={info.snippet.thumbnails.medium.url} alt="thumbnail" />
+        <div className="flex flex-col ">
+            <h1 className='font-bold ml-2'>{info.snippet.channelTitle}</h1>
+
+            <p className='m-2'>{info.snippet.title}</p>
         </div>
-      
+        
     </div>
   )
 }

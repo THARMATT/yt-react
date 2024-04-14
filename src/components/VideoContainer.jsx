@@ -10,13 +10,16 @@ const [Videos, setVideos] = useState([])
     async function getData(){
         const response=await fetch(YOUTUBE_API);
         const json= await response.json();
-        console.log(json)
-        setVideos(json.items.snippet)
+        // console.log(json)
+        setVideos(json.items)
     }
   return (
-    <div className=''>
-      <VideoCard {...Videos}/>
-      h1    
+    <div className='p-2 ml-4 flex flex-wrap gap-4 items-center'>
+      {Videos.map((video)=>(
+<VideoCard info={video} key={video.id} />
+      ))}
+    
+      
     </div>
   )
 }
